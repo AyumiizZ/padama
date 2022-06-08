@@ -1,12 +1,10 @@
 <template>
-  <v-app>
+  <v-app class="overflow-hidden">
     <Header></Header>
     <v-main style="padding: 64px 0px 0px 0px">
-      <v-card class="overflow-hidden">
-        <v-container fluid class="grey lighten-4">
-          <router-view />
-        </v-container>
-      </v-card>
+      <v-container fluid class="grey lighten-4" fill-height>
+        <router-view />
+      </v-container>
     </v-main>
   </v-app>
 </template>
