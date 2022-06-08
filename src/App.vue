@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-main>
+    <Header></Header>
+    <v-main style="padding: 64px 0px">
       <v-card class="overflow-hidden">
-        <Header></Header>
         <v-container fluid class="grey lighten-4">
           <router-view />
         </v-container>
