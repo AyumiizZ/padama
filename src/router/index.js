@@ -20,13 +20,13 @@ const routes = [
     component: () => import("@/views/SignInView.vue"),
   },
   {
-    path: "/pid-search",
-    name: "pidsearch",
+    path: "/cid-search",
+    name: "cidsearch",
     component: () => import("@/views/Search/ByCaseID.vue"),
   },
   {
-    path: "/cid-search",
-    name: "cidsearch",
+    path: "/pid-search",
+    name: "pidsearch",
     component: () => import("@/views/Search/ByPatientID.vue"),
   },
 ];
