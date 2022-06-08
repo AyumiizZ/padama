@@ -27,33 +27,12 @@
         </div>
       </v-card-text>
     </v-card>
-    <!-- <v-row class="mb-4">
-      <v-col>
-        <h2 class="font-weight-bold text-lg-h2">Sign In</h2>
-      </v-col>
-    </v-row>
-    <v-card flat>
-      <v-row>
-        <v-col cols="12">
-          
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            label="Username"
-            background-color="white"
-            filled
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-card> -->
   </v-responsive>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "SignInView",
 
   data: () => ({
     remember: false,
