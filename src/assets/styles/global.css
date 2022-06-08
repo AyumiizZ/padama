@@ -1,4 +1,4 @@
-a {
+.noline {
   display: inline-block !important;
-  /* text-decoration: none !important; */
+  text-decoration: none !important;
 }

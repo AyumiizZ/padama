@@ -1,12 +1,12 @@
 <template>
   <v-app-bar fixed color="white">
-    <router-link class="ma-2" to="/">
+    <router-link class="ma-2 noline" to="/">
       <v-btn text> home </v-btn>
     </router-link>
     <v-spacer></v-spacer>
     <v-menu open-on-hover offset-y>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on">
+        <v-btn v-bind="attrs" v-on="on" text>
           Search
           <v-icon> mdi-chevron-down </v-icon>
         </v-btn>
@@ -15,7 +15,7 @@
       <v-list>
         <v-list-item v-for="(menu, index) in searchMenus" :key="index">
           <v-list-item-title>
-            <router-link class="ma-2" :to="menu.path">
+            <router-link class="ma-2 noline" :to="menu.path">
               <v-btn text> {{ menu.title }} </v-btn>
             </router-link>
           </v-list-item-title>
@@ -23,11 +23,15 @@
       </v-list>
     </v-menu>
 
-    <router-link class="ma-2" to="/login" v-if="!$store.state.isUserLoggedIn">
-      <v-btn text> Login </v-btn>
+    <router-link
+      class="ma-2 noline"
+      to="/signin"
+      v-if="!$store.state.isUserLoggedIn"
+    >
+      <v-btn text> Sign In </v-btn>
     </router-link>
-    <router-link class="ma-2" to="/logout" v-else>
-      <v-btn text> logout </v-btn>
+    <router-link class="ma-2 noline" to="/signout" v-else>
+      <v-btn text> Sign Out </v-btn>
     </router-link>
   </v-app-bar>
 </template>
