@@ -59,8 +59,8 @@ export default {
         { title: "Sign In", path: "/signin", icon: "lock_open" },
       ],
       searchMenus: [
-        { title: "Patient ID", path: "/search" },
-        { title: "Case ID", path: "/case-search" },
+        { title: "Patient ID", path: "/pid-search" },
+        { title: "Case ID", path: "/cid-search" },
       ],
     };
   },
