@@ -4,6 +4,9 @@
       <v-btn text> home </v-btn>
     </router-link>
     <v-spacer></v-spacer>
+    <router-link class="ma-2 noline" to="/test">
+      <v-btn text> test </v-btn>
+    </router-link>
     <v-menu open-on-hover offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" text>
