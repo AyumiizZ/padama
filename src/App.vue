@@ -2,7 +2,7 @@
   <v-app class="overflow-hidden">
     <Header></Header>
     <v-main style="padding: 64px 0px 0px 0px">
-      <v-container fluid class="grey lighten-3" fill-height>
+      <v-container fluid class="grey lighten-3">
         <router-view />
       </v-container>
     </v-main>
