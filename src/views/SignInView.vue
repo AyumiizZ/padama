@@ -15,12 +15,15 @@
       </v-card-title>
       <v-card-text>
         <v-text-field label="Username" outlined />
-        <v-text-field label="Password" type="password" outlined hide-details />
-        <v-checkbox
-          dense
-          v-model="remember"
-          :label="`Remember me: ${remember.toString()}`"
-        ></v-checkbox>
+        <v-text-field
+          label="Password"
+          outlined
+          hide-details
+          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="showPassword ? 'text' : 'password'"
+          @click:append="showPassword = !showPassword"
+        />
+        <v-checkbox dense v-model="remember" label="Remember me"></v-checkbox>
         <v-btn x-large block color="success"> Sign In </v-btn>
         <div class="text-center mt-4 text-body-2">
           <a href="#"> Forgot your password? </a>
@@ -36,6 +39,7 @@ export default {
 
   data: () => ({
     remember: false,
+    showPassword: false,
   }),
 };
 </script>
