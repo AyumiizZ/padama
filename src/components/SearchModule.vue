@@ -12,7 +12,28 @@
             :label="searchModuleProps.searchKey"
             outlined
             hide-details
+            v-if="typeof searchModuleProps.searchKey === 'string'"
           />
+          <!-- <v-text-field
+            class="py-2 mx-2"
+            :label="searchModuleProps.searchKey.title"
+            outlined
+            hide-details
+          /> -->
+          <v-autocomplete
+            class="py-2 mx-2"
+            v-model="values"
+            clearable
+            deletable-chips
+            :items="searchModuleProps.searchKey.chips"
+            outlined
+            chips
+            small-chips
+            hide-details
+            :label="searchModuleProps.searchKey.title"
+            multiple
+            v-if="typeof searchModuleProps.searchKey === 'object'"
+          ></v-autocomplete>
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols="4">
