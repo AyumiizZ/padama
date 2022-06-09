@@ -29,6 +29,11 @@ const routes = [
     name: "pidsearch",
     component: () => import("@/views/Search/ByPatientID.vue"),
   },
+  {
+    path: "/test",
+    name: "testpage",
+    component: () => import("@/views/testPage.vue"),
+  },
 ];
 
 const router = new VueRouter({

@@ -1,149 +1,130 @@
 <template>
-  <v-responsive style="align-items: top !important">
-    <div class="py-2">
-      <h1 class="text-h4 font-weight-bold">Search by patient ID</h1>
-      <v-divider class="my-2" />
-    </div>
-    <v-card>
-      <v-row no-gutters>
-        <v-col cols="8">
-          <v-text-field
-            class="py-2 mx-2"
-            label="Registration No."
-            outlined
-            hide-details
-          />
-        </v-col>
-        <v-col cols="3">
-          <v-text-field
-            class="py-2 mx-2"
-            label="Range"
-            outlined
-            hide-details
-            readonly
-          />
-        </v-col>
-        <v-col cols="1" align="center" style="padding: 10px 0px">
-          <v-menu
-            open-on-click
-            :close-on-content-click="false"
-            v-model="filterMenus"
-            offset-y
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn icon x-large class="mx-2" v-bind="attrs" v-on="on">
-                <v-icon>mdi-filter</v-icon>
-              </v-btn>
-            </template>
-            <v-card max-width="550px">
-              <v-card-title centered>Filter</v-card-title>
-              <v-divider />
-              <v-card-subtitle class="pb-0">Quick Select</v-card-subtitle>
-              <v-row no-gutters class="py-2 mx-2">
-                <v-col cols="5">
-                  <v-select
-                    :items="filterSuffixItems"
-                    v-model="filterSuffix"
-                    class="py-2 mx-2"
-                    outlined
-                    hide-details
-                  ></v-select>
-                </v-col>
-                <v-col cols="2">
-                  <v-text-field
-                    class="py-2 mx-2"
-                    outlined
-                    hide-details
-                    v-model="filterValue"
-                  />
-                </v-col>
-                <v-col cols="3">
-                  <v-select
-                    :items="filterPrefixItems"
-                    v-model="filterPrefix"
-                    class="py-2 mx-2"
-                    outlined
-                    hide-details
-                  >
-                  </v-select>
-                </v-col>
-                <v-col cols="2" align="center" class="py-2 pr-2">
-                  <v-btn width="100%" height="100%" text>Apply</v-btn>
-                </v-col>
-              </v-row>
-
-              <v-divider />
-              <v-card-subtitle class="pb-0">Commonly used</v-card-subtitle>
-              <v-list>
-                <v-list-item-group dense>
-                  <v-list-item
-                    v-for="(menu, index) in commonMenus"
-                    :key="index"
-                    dense
-                    @click="calRange(menu.range)"
-                    >{{ menu.range }}
-                  </v-list-item></v-list-item-group
-                >
-              </v-list>
-            </v-card>
-          </v-menu>
-
-          <v-btn icon x-large class="mx-2"><v-icon>mdi-magnify</v-icon></v-btn>
-        </v-col>
-      </v-row>
+  <div style="align-items: top !important" width="100%">
+    <SearchModule
+      :title="title"
+      :searchModuleProps="searchModuleProps"
+    ></SearchModule>
+    <v-card elevation="4">
+      <v-data-table :headers="headers" :items="desserts" :items-per-page="5">
+        <template v-slot:top>
+          <v-toolbar flat>
+            <v-toolbar-title>Result</v-toolbar-title>
+          </v-toolbar>
+          <v-divider></v-divider>
+        </template>
+      </v-data-table>
     </v-card>
-  </v-responsive>
+  </div>
 </template>
 
 <script>
+import SearchModule from "@/components/SearchModule.vue";
 export default {
   name: "SearchPIDView",
-  methods: {
-    submit: function () {
-      alert("1111");
-    },
-    calRange: function (inputRange) {
-      // alert(inputRange);
-      console.log("calRange: " + inputRange);
-      this.filterMenus = false;
-    },
-  },
+  methods: {},
   data() {
     return {
-      commonMenus: [
-        { range: "Today" },
-        { range: "This Week" },
-        { range: "This Month" },
-        { range: "This Year" },
-        { range: "Last 24 Hours" },
-        { range: "Last 7 Days" },
-        { range: "Last 1 Month" },
-        { range: "Last 1 Year" },
-      ],
-      filterMenus: true,
-      filterSuffix: "Last (from today)",
-      filterSuffixItems: ["Last (from today)", "First (of month)"],
-      filterValue: 5,
-      filterPrefix: "Days",
-      filterPrefixItems: [
-        "Seconds",
-        "Minutes",
-        "Hours",
-        "Days",
-        "Weeks",
-        "Months",
-        "Years",
-      ],
-      masks: {
-        input: "YYYY-MM-DD h:mm A",
+      title: "Search By Patient ID",
+      searchModuleProps: {
+        searchKey: "Registration No.",
       },
+      headers: [
+        {
+          text: "Dessert (100g serving)",
+          align: "start",
+          sortable: false,
+          value: "name",
+        },
+        { text: "Calories", value: "calories" },
+        { text: "Fat (g)", value: "fat" },
+        { text: "Carbs (g)", value: "carbs" },
+        { text: "Protein (g)", value: "protein" },
+        { text: "Iron (%)", value: "iron" },
+      ],
+      desserts: [
+        {
+          name: "Frozen Yogurt",
+          calories: 159,
+          fat: 6,
+          carbs: 24,
+          protein: 4,
+          iron: "1%",
+        },
+        {
+          name: "Ice cream sandwich",
+          calories: 237,
+          fat: 9,
+          carbs: 37,
+          protein: 4.3,
+          iron: "1%",
+        },
+        {
+          name: "Eclair",
+          calories: 262,
+          fat: 16,
+          carbs: 23,
+          protein: 6,
+          iron: "7%",
+        },
+        {
+          name: "Cupcake",
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          iron: "8%",
+        },
+        {
+          name: "Gingerbread",
+          calories: 356,
+          fat: 16,
+          carbs: 49,
+          protein: 3.9,
+          iron: "16%",
+        },
+        {
+          name: "Jelly bean",
+          calories: 375,
+          fat: 0,
+          carbs: 94,
+          protein: 0,
+          iron: "0%",
+        },
+        {
+          name: "Lollipop",
+          calories: 392,
+          fat: 0.2,
+          carbs: 98,
+          protein: 0,
+          iron: "2%",
+        },
+        {
+          name: "Honeycomb",
+          calories: 408,
+          fat: 3.2,
+          carbs: 87,
+          protein: 6.5,
+          iron: "45%",
+        },
+        {
+          name: "Donut",
+          calories: 452,
+          fat: 25,
+          carbs: 51,
+          protein: 4.9,
+          iron: "22%",
+        },
+        {
+          name: "KitKat",
+          calories: 518,
+          fat: 26,
+          carbs: 65,
+          protein: 7,
+          iron: "6%",
+        },
+      ],
     };
   },
+  components: { SearchModule },
 };
 </script>
-
-<style>
-.v-item-group {
-  column-count: 2;
-}
-</style>
