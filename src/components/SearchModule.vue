@@ -136,7 +136,9 @@
             </v-card>
           </v-menu>
 
-          <v-btn icon x-large class="mx-2"><v-icon>mdi-magnify</v-icon></v-btn>
+          <v-btn icon x-large class="mx-2" @click="testClick">
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-card>
@@ -155,6 +157,9 @@ export default {
       // alert(inputRange);
       console.log("calRange: " + inputRange);
       this.filterMenus = false;
+    },
+    testClick: function () {
+      console.log(this.values);
     },
   },
   data() {
@@ -190,6 +195,7 @@ export default {
         start: new Date(new Date().getTime() - 5 * 60 * 60 * 24 * 1000),
         end: new Date(),
       },
+      values: null,
     };
   },
 };
