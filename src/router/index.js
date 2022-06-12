@@ -40,6 +40,26 @@ const routes = [
     component: () => import("@/views/Add/Case.vue"),
   },
   {
+    path: "/patient/:pid",
+    name: "patient",
+    component: () => import("@/views/PatientView.vue"),
+  },
+  {
+    path: "/pdf/:cid",
+    name: "PDF",
+    component: () => import("@/views/PDFView.vue"),
+  },
+  {
+    path: "/video/:cid",
+    name: "video",
+    component: () => import("@/views/VideoView.vue"),
+  },
+  {
+    path: "/image/:cid",
+    name: "image",
+    component: () => import("@/views/imageView.vue"),
+  },
+  {
     path: "/test",
     name: "testpage",
     component: () => import("@/views/testPage.vue"),

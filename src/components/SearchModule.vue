@@ -14,12 +14,6 @@
             hide-details
             v-if="typeof searchModuleProps.searchKey === 'string'"
           />
-          <!-- <v-text-field
-            class="py-2 mx-2"
-            :label="searchModuleProps.searchKey.title"
-            outlined
-            hide-details
-          /> -->
           <v-autocomplete
             class="py-2 mx-2"
             v-model="values"
