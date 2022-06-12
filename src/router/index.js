@@ -30,6 +30,16 @@ const routes = [
     component: () => import("@/views/Search/ByPatientID.vue"),
   },
   {
+    path: "/add-patient",
+    name: "addPatient",
+    component: () => import("@/views/Add/Patient.vue"),
+  },
+  {
+    path: "/add-case",
+    name: "addCase",
+    component: () => import("@/views/Add/Case.vue"),
+  },
+  {
     path: "/test",
     name: "testpage",
     component: () => import("@/views/testPage.vue"),

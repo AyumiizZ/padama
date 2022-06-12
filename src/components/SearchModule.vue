@@ -83,7 +83,7 @@
                 <v-icon>mdi-filter</v-icon>
               </v-btn>
             </template>
-            <v-card max-width="550px">
+            <v-card min-width="450px" max-width="550px">
               <v-card-title centered>Filter</v-card-title>
               <v-divider />
               <v-card-subtitle class="pb-0">Quick Select</v-card-subtitle>
