@@ -60,6 +60,11 @@ const routes = [
     component: () => import("@/views/imageView.vue"),
   },
   {
+    path: "/upload",
+    name: "upload",
+    component: () => import("@/views/UploadView.vue"),
+  },
+  {
     path: "/test",
     name: "testpage",
     component: () => import("@/views/testPage.vue"),

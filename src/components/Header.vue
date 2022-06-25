@@ -4,6 +4,9 @@
       <v-btn text> home </v-btn>
     </router-link>
     <v-spacer></v-spacer>
+    <router-link class="ma-2 noline" to="/upload">
+      <v-btn text> upload </v-btn>
+    </router-link>
     <router-link class="ma-2 noline" to="/test">
       <v-btn text> test </v-btn>
     </router-link>
