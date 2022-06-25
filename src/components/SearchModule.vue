@@ -1,6 +1,6 @@
 <template>
   <div class="pb-7">
-    <div class="py-2">
+    <div class="py-2" v-if="title !== null">
       <h1 class="text-h4 font-weight-bold">{{ title }}</h1>
       <v-divider class="my-2" />
     </div>

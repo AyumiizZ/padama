@@ -19,20 +19,20 @@
           <v-divider></v-divider>
         </template>
         <template v-slot:item="row">
-          <!--   <router-link
+          <router-link
             custom
             v-slot="{ navigate }"
-            :to="{ name: 'Patient', params: { _id: row.item.patientID } }"
-          > -->
-          <!-- <tr @click="navigate"> -->
-          <tr>
-            <td>{{ row.item.pid }}</td>
-            <td>{{ row.item.firstname }}</td>
-            <td>{{ row.item.lastname }}</td>
-            <td>{{ row.item.sex }}</td>
-            <td>{{ calAge(row.item.birthDate) }}</td>
-          </tr>
-          <!-- </router-link> -->
+            :to="{ name: 'patient', params: { pid: row.item.pid } }"
+          >
+            <tr @click="navigate">
+              <!-- <tr> -->
+              <td>{{ row.item.pid }}</td>
+              <td>{{ row.item.firstname }}</td>
+              <td>{{ row.item.lastname }}</td>
+              <td>{{ row.item.sex }}</td>
+              <td>{{ calAge(row.item.birthDate) }}</td>
+            </tr>
+          </router-link>
         </template>
       </v-data-table>
     </v-card>
@@ -85,7 +85,7 @@ export default {
       ],
       queryResults: [
         {
-          pid: 61012345678,
+          pid: 6101234567,
           firstname: "Harry",
           lastname: "potter",
           sex: "gay",

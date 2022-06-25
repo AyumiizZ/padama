@@ -18,33 +18,33 @@
           <v-divider></v-divider>
         </template>
         <template v-slot:item="row">
-          <!-- <router-link
+          <router-link
             custom
             v-slot="{ navigate }"
-            :to="{ name: 'Patient', params: { _id: row.item.pid } }"
-          > -->
-          <!-- <tr @click="navigate"> -->
-          <tr>
-            <td>{{ row.item.pid }}</td>
-            <td>{{ row.item.firstname }}</td>
-            <td>{{ row.item.lastname }}</td>
-            <td>{{ row.item.cid }}</td>
-            <!-- <td>{{ parseDiag(row.item.diagnosis) }}</td> -->
-            <td>
-              <!-- {{ parseDiag(row.item.diagnosis) }} -->
-              <v-chip
-                dense
-                class="ma-1"
-                v-for="item in row.item.diagnosis"
-                :key="item.index"
-              >
-                {{ item }}
-              </v-chip>
-            </td>
-            <td>{{ parseDate(row.item.visitDate) }}</td>
-            <td>{{ parseDate(row.item.operativeDate) }}</td>
-          </tr>
-          <!-- </router-link> -->
+            :to="{ name: 'patient', params: { pid: row.item.pid } }"
+          >
+            <tr @click="navigate">
+              <!-- <tr> -->
+              <td>{{ row.item.pid }}</td>
+              <td>{{ row.item.firstname }}</td>
+              <td>{{ row.item.lastname }}</td>
+              <td>{{ row.item.cid }}</td>
+              <!-- <td>{{ parseDiag(row.item.diagnosis) }}</td> -->
+              <td>
+                <!-- {{ parseDiag(row.item.diagnosis) }} -->
+                <v-chip
+                  dense
+                  class="ma-1"
+                  v-for="item in row.item.diagnosis"
+                  :key="item.index"
+                >
+                  {{ item }}
+                </v-chip>
+              </td>
+              <td>{{ parseDatetime(row.item.visitDate) }}</td>
+              <td>{{ parseDatetime(row.item.operativeDate) }}</td>
+            </tr>
+          </router-link>
         </template>
       </v-data-table>
     </v-card>
@@ -56,7 +56,7 @@ import SearchModule from "@/components/SearchModule.vue";
 export default {
   name: "SearchCIDView",
   methods: {
-    parseDate(date) {
+    parseDatetime(date) {
       if (date === null) {
         return "N/A";
       }
@@ -99,7 +99,6 @@ export default {
           text: "Case ID",
           value: "cid",
         },
-
         {
           text: "Diagnosis",
           value: "diagnosis",
