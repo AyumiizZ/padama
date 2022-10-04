@@ -4,9 +4,31 @@
       <v-btn text> home </v-btn>
     </router-link>
     <v-spacer></v-spacer>
+    <router-link class="ma-2 noline" to="/upload">
+      <v-btn text> upload </v-btn>
+    </router-link>
     <router-link class="ma-2 noline" to="/test">
       <v-btn text> test </v-btn>
     </router-link>
+    <v-menu open-on-hover offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn v-bind="attrs" v-on="on" text>
+          New
+          <v-icon> mdi-chevron-down </v-icon>
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item v-for="(menu, index) in addMenus" :key="index">
+          <v-list-item-title>
+            <router-link class="ma-2 noline" :to="menu.path">
+              <v-btn text> {{ menu.title }} </v-btn>
+            </router-link>
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
     <v-menu open-on-hover offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn v-bind="attrs" v-on="on" text>
@@ -64,6 +86,10 @@ export default {
       searchMenus: [
         { title: "Patient ID", path: "/pid-search" },
         { title: "Case ID", path: "/cid-search" },
+      ],
+      addMenus: [
+        { title: "Patient", path: "/add-patient" },
+        { title: "Case", path: "/add-case" },
       ],
     };
   },

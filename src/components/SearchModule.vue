@@ -1,6 +1,6 @@
 <template>
   <div class="pb-7">
-    <div class="py-2">
+    <div class="py-2" v-if="title !== null">
       <h1 class="text-h4 font-weight-bold">{{ title }}</h1>
       <v-divider class="my-2" />
     </div>
@@ -14,12 +14,6 @@
             hide-details
             v-if="typeof searchModuleProps.searchKey === 'string'"
           />
-          <!-- <v-text-field
-            class="py-2 mx-2"
-            :label="searchModuleProps.searchKey.title"
-            outlined
-            hide-details
-          /> -->
           <v-autocomplete
             class="py-2 mx-2"
             v-model="values"
@@ -83,7 +77,7 @@
                 <v-icon>mdi-filter</v-icon>
               </v-btn>
             </template>
-            <v-card max-width="550px">
+            <v-card min-width="450px" max-width="550px">
               <v-card-title centered>Filter</v-card-title>
               <v-divider />
               <v-card-subtitle class="pb-0">Quick Select</v-card-subtitle>
@@ -136,7 +130,9 @@
             </v-card>
           </v-menu>
 
-          <v-btn icon x-large class="mx-2"><v-icon>mdi-magnify</v-icon></v-btn>
+          <v-btn icon x-large class="mx-2" @click="testClick">
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-card>
@@ -155,6 +151,9 @@ export default {
       // alert(inputRange);
       console.log("calRange: " + inputRange);
       this.filterMenus = false;
+    },
+    testClick: function () {
+      console.log(this.values);
     },
   },
   data() {
@@ -190,6 +189,7 @@ export default {
         start: new Date(new Date().getTime() - 5 * 60 * 60 * 24 * 1000),
         end: new Date(),
       },
+      values: null,
     };
   },
 };

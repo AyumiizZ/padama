@@ -1,8 +1,8 @@
 <template>
   <v-app class="overflow-hidden">
     <Header></Header>
-    <v-main style="padding: 64px 0px 0px 0px">
-      <v-container fluid class="grey lighten-3" grid-list-md>
+    <v-main style="padding: 64px 0px 0px 0px" class="grey lighten-3">
+      <v-container fluid grid-list-md>
         <router-view />
       </v-container>
     </v-main>

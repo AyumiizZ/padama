@@ -30,6 +30,41 @@ const routes = [
     component: () => import("@/views/Search/ByPatientID.vue"),
   },
   {
+    path: "/add-patient",
+    name: "addPatient",
+    component: () => import("@/views/Add/Patient.vue"),
+  },
+  {
+    path: "/add-case",
+    name: "addCase",
+    component: () => import("@/views/Add/Case.vue"),
+  },
+  {
+    path: "/patient/:pid",
+    name: "patient",
+    component: () => import("@/views/PatientView.vue"),
+  },
+  {
+    path: "/pdf/:cid",
+    name: "PDF",
+    component: () => import("@/views/PDFView.vue"),
+  },
+  {
+    path: "/video/:cid",
+    name: "video",
+    component: () => import("@/views/VideoView.vue"),
+  },
+  {
+    path: "/image/:cid",
+    name: "image",
+    component: () => import("@/views/imageView.vue"),
+  },
+  {
+    path: "/upload",
+    name: "upload",
+    component: () => import("@/views/UploadView.vue"),
+  },
+  {
     path: "/test",
     name: "testpage",
     component: () => import("@/views/testPage.vue"),
